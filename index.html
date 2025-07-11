@@ -20,26 +20,45 @@
       <p><strong>Rätsel:</strong> Was ist 2 + 2?</p>
       <input type="text" id="captcha" placeholder="Antwort hier eingeben..." required />
       
-      <button type="submit">
-        <img src="https://cdn.discordapp.com/emojis/1360767956694470786.webp" alt="check" style="height: 14px; vertical-align: middle; margin-right: 6px;">
-        Verifizieren
-      </button>
+      <button type="submit">✅ Verifizieren</button>
     </form>
 
     <div id="statusMsg"></div>
   </div>
 
   <script>
-    document.getElementById("verifyForm").addEventListener("submit", function(e) {
+    document.getElementById("verifyForm").addEventListener("submit", async function (e) {
       e.preventDefault();
+
       const check = document.getElementById("humanCheck").checked;
       const captcha = document.getElementById("captcha").value.trim();
+      const userId = new URLSearchParams(window.location.search).get("id");
+
+      if (!userId) {
+        document.getElementById("statusMsg").textContent = "❌ Discord-ID fehlt in der URL.";
+        return;
+      }
 
       if (check && captcha === "4") {
-        document.getElementById("statusMsg").textContent = "Verifizierung erfolgreich! 🎉";
-        // HIER: Anfrage an Bot-API senden oder Webhook/Socket triggern
+        try {
+          const res = await fetch("https://DEIN-BOT-NAME.repl.co/verify", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ discordId: userId })
+          });
+
+          const data = await res.json();
+
+          if (data.success) {
+            document.getElementById("statusMsg").textContent = "✅ Erfolgreich verifiziert!";
+          } else {
+            document.getElementById("statusMsg").textContent = "❌ Fehler: " + (data.error || "Unbekannt");
+          }
+        } catch (err) {
+          document.getElementById("statusMsg").textContent = "❌ Verbindung fehlgeschlagen.";
+        }
       } else {
-        document.getElementById("statusMsg").textContent = "Bitte Rätsel korrekt beantworten.";
+        document.getElementById("statusMsg").textContent = "❌ Bitte das Rätsel korrekt lösen.";
       }
     });
   </script>
