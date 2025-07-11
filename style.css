@@ -1,57 +1,69 @@
 body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: url('https://s3.galaxybot.app/server/1225886147259928656/a0e90315-96d4-42a3-a722-644951ae9925.png') center/cover no-repeat fixed;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  backdrop-filter: blur(4px);
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", sans-serif;
+    background: url('https://s3.galaxybot.app/server/1225886147259928656/a0e90315-96d4-42a3-a722-644951ae9925.png') center/cover no-repeat fixed;
+    backdrop-filter: blur(5px);
+    overflow: hidden;
 }
 
-.glass-container {
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 15px;
-  padding: 30px;
-  max-width: 400px;
-  width: 90%;
-  text-align: center;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,0.3);
-  color: #fff;
+.background-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 0;
 }
 
-h1 {
-  margin-bottom: 10px;
+.container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
 }
 
-button {
-  margin-top: 15px;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 25px;
-  background-color: #4caf50;
-  color: white;
-  font-size: 1em;
-  cursor: pointer;
+.frosted {
+    background: rgba(20, 20, 20, 0.5);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(12px);
+    border-radius: 15px;
+    padding: 40px;
+    width: 90%;
+    max-width: 400px;
+    color: #fff;
+    text-align: center;
+    position: relative;
 }
 
-button:hover {
-  background-color: #3e8e41;
+.logo {
+    width: 120px;
+    margin-bottom: 20px;
+    border-radius: 10px;
 }
 
-input[type="text"] {
-  padding: 8px;
-  border-radius: 5px;
-  border: none;
-  margin-top: 10px;
-  width: 80%;
+.verify-button {
+    margin-top: 20px;
+    padding: 12px 20px;
+    font-size: 16px;
+    background: rgba(200, 200, 200, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    color: white;
+    backdrop-filter: blur(8px);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s ease;
 }
 
-label {
-  display: block;
-  margin: 15px 0;
-  font-size: 0.95em;
+.verify-button:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
 }
