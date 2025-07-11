@@ -1,87 +1,57 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
-
-* {
-  box-sizing: border-box;
-  font-family: 'Inter', sans-serif;
-}
-
-body, html {
+body {
   margin: 0;
   padding: 0;
-  height: 100%;
-  background: #000;
-}
-
-.background {
-  background-image: url('https://s3.galaxybot.app/server/1225886147259928656/a0e90315-96d4-42a3-a722-644951ae9925.png');
-  background-size: cover;
-  background-position: center;
-  filter: blur(8px) brightness(0.3);
-  height: 100%;
-  width: 100%;
-  position: fixed;
-  z-index: -1;
+  font-family: 'Segoe UI', sans-serif;
+  background: url('https://s3.galaxybot.app/server/1225886147259928656/a0e90315-96d4-42a3-a722-644951ae9925.png') center/cover no-repeat fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  backdrop-filter: blur(4px);
 }
 
 .glass-container {
-  background: rgba(0, 0, 0, 0.55);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-  border-radius: 16px;
-  padding: 40px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  padding: 30px;
   max-width: 400px;
-  margin: 80px auto;
+  width: 90%;
   text-align: center;
-  color: white;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: #fff;
 }
 
-h2 {
+h1 {
   margin-bottom: 10px;
 }
 
-p {
-  margin: 10px 0;
+button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  background-color: #4caf50;
+  color: white;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #3e8e41;
 }
 
 input[type="text"] {
-  width: 100%;
-  padding: 10px;
-  border-radius: 8px;
+  padding: 8px;
+  border-radius: 5px;
   border: none;
   margin-top: 10px;
-  margin-bottom: 15px;
-  font-size: 16px;
+  width: 80%;
 }
 
 label {
   display: block;
-  margin: 10px 0;
-  font-size: 14px;
-}
-
-#verifyButton {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  background: rgba(60, 60, 60, 0.6);
-  color: white;
-  border: none;
-  padding: 12px 20px;
-  border-radius: 12px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-  backdrop-filter: blur(6px);
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.1);
-}
-
-#verifyButton:hover {
-  background: rgba(80, 80, 80, 0.7);
-}
-
-.button-icon {
-  height: 20px;
-  width: 20px;
+  margin: 15px 0;
+  font-size: 0.95em;
 }
