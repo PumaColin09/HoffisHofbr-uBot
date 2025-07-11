@@ -1,30 +1,44 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verifizierung | Hoffis Hofbräu</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hoffi's Hofbräu – Verifizierung</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div class="background-overlay"></div>
-    <div class="container">
-        <div class="card frosted">
-            <img src="https://s3.galaxybot.app/server/1225886147259928656/a0e90315-96d4-42a3-a722-644951ae9925.png" alt="Logo" class="logo">
-            <h1>Verifiziere dich</h1>
-            <p>Bitte bestätige, dass du ein Mensch bist, um Zugriff zum Server zu erhalten.</p>
-            <form id="verifyForm">
-                <label>
-                    <input type="checkbox" id="captchaCheck">
-                    Ich bin kein Roboter
-                </label>
-                <button type="submit" class="verify-button">
-                    <img src="https://cdn.discordapp.com/emojis/1360767956694470786.webp" class="icon" alt="check"> Verifizieren
-                </button>
-            </form>
-            <p id="result"></p>
-        </div>
-    </div>
-    <script src="script.js"></script>
+  <div class="glass-container">
+    <h1>🚀 Willkommen bei Hoffi's Hofbräu</h1>
+    <p>Bitte bestätige, dass du ein Mensch bist, um auf den Discord-Server zuzugreifen.</p>
+
+    <form id="verifyForm">
+      <label>
+        <input type="checkbox" id="humanCheck" required />
+        Ich bin ein echter Mensch
+      </label>
+
+      <p><strong>Rätsel:</strong> Was ist 2 + 2?</p>
+      <input type="text" id="captcha" placeholder="Antwort hier eingeben..." required />
+      
+      <button type="submit">✅ Verifizieren</button>
+    </form>
+
+    <div id="statusMsg"></div>
+  </div>
+
+  <script>
+    document.getElementById("verifyForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const check = document.getElementById("humanCheck").checked;
+      const captcha = document.getElementById("captcha").value.trim();
+
+      if (check && captcha === "4") {
+        document.getElementById("statusMsg").textContent = "Verifizierung erfolgreich! 🎉";
+        // HIER: Anfrage an Bot-API senden oder Webhook/Socket triggern
+      } else {
+        document.getElementById("statusMsg").textContent = "Bitte Rätsel korrekt beantworten.";
+      }
+    });
+  </script>
 </body>
 </html>
