@@ -24,7 +24,7 @@ body, html {
 }
 
 .glass-container {
-  background: rgba(0, 0, 0, 0.55);
+  background: rgba(40, 40, 40, 0.7); /* dunkles Grau */
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
@@ -33,7 +33,7 @@ body, html {
   max-width: 400px;
   margin: 80px auto;
   text-align: center;
-  color: gray;
+  color: white;
 }
 
 h2 {
@@ -82,6 +82,6 @@ label {
 }
 
 .button-icon {
-  height: 20px;
-  width: 20px;
+  height: 16px;
+  width: 16px;
 }
