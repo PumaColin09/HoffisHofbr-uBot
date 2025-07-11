@@ -1,0 +1,77 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: url('https://s3.galaxybot.app/server/1225886147259928656/a0e90315-96d4-42a3-a722-644951ae9925.png') center/cover no-repeat fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.glass-container {
+  background: rgba(20, 20, 20, 0.65); /* dunkles Glas */
+  border-radius: 18px;
+  padding: 30px;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  color: white;
+}
+
+h1 {
+  margin-bottom: 10px;
+}
+
+p {
+  color: #cccccc;
+}
+
+input[type="text"] {
+  padding: 8px;
+  border-radius: 6px;
+  border: none;
+  margin-top: 10px;
+  width: 80%;
+  font-size: 1em;
+}
+
+label {
+  display: block;
+  margin: 15px 0;
+  font-size: 0.95em;
+  color: #bbb;
+}
+
+button {
+  margin-top: 15px;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 18px;
+  background: rgba(15, 15, 15, 0.85);
+  color: white;
+  font-size: 1em;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.05), 0 4px 10px rgba(0, 0, 0, 0.5);
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: rgba(30, 30, 30, 0.9);
+}
+
+button img {
+  height: 14px;
+  width: 14px;
+  vertical-align: middle;
+}
