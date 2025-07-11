@@ -3,41 +3,47 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Hoffi's Hofbräu – Verifizierung</title>
+  <title>Verifizierung – Hoffi's Hofbräu</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="background"></div>
   <div class="glass-container">
-    <h1>🚀 Willkommen bei Hoffi's Hofbräu</h1>
+    <h2>🚀 Willkommen bei <br><strong>Hoffi's Hofbräu</strong></h2>
     <p>Bitte bestätige, dass du ein Mensch bist, um auf den Discord-Server zuzugreifen.</p>
-
-    <form id="verifyForm">
-      <label>
-        <input type="checkbox" id="humanCheck" required />
-        Ich bin ein echter Mensch
-      </label>
-
-      <p><strong>Rätsel:</strong> Was ist 2 + 2?</p>
-      <input type="text" id="captcha" placeholder="Antwort hier eingeben..." required />
-      
-      <button type="submit">✅ Verifizieren</button>
-    </form>
-
-    <div id="statusMsg"></div>
+    <label>
+      <input type="checkbox" id="humanCheck" />
+      Ich bin ein echter Mensch
+    </label>
+    <p id="riddle">Rätsel: Was ist 2 + 2?</p>
+    <input type="text" id="answer" placeholder="Antwort hier eingeben..." />
+    <button id="verifyButton">
+      <img src="https://cdn.discordapp.com/emojis/1360767956694470786.webp?size=44" alt="Verify Icon" class="button-icon" />
+      Verifizieren
+    </button>
+    <p id="statusMessage"></p>
   </div>
-
   <script>
-    document.getElementById("verifyForm").addEventListener("submit", function(e) {
-      e.preventDefault();
-      const check = document.getElementById("humanCheck").checked;
-      const captcha = document.getElementById("captcha").value.trim();
+    document.getElementById("verifyButton").addEventListener("click", () => {
+      const isHuman = document.getElementById("humanCheck").checked;
+      const answer = document.getElementById("answer").value.trim();
+      const statusMessage = document.getElementById("statusMessage");
 
-      if (check && captcha === "4") {
-        document.getElementById("statusMsg").textContent = "Verifizierung erfolgreich! 🎉";
-        // HIER: Anfrage an Bot-API senden oder Webhook/Socket triggern
-      } else {
-        document.getElementById("statusMsg").textContent = "Bitte Rätsel korrekt beantworten.";
+      if (!isHuman) {
+        statusMessage.textContent = "Bitte bestätige, dass du ein Mensch bist.";
+        return;
       }
+
+      if (answer !== "4") {
+        statusMessage.textContent = "Das Rätsel wurde leider falsch beantwortet.";
+        return;
+      }
+
+      statusMessage.style.color = "lightgreen";
+      statusMessage.textContent = "✅ Verifizierung erfolgreich! Du kannst jetzt auf den Discord-Server zugreifen.";
+      
+      // Hier kannst du später z. B. einen Redirect einbauen:
+      // window.location.href = "https://dein-bot.de/rolle-vergeben";
     });
   </script>
 </body>
