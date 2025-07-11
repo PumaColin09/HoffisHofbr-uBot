@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hoffi's Hofbräu – Verifizierung</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="glass-container">
+    <h1>🚀 Willkommen bei Hoffi's Hofbräu</h1>
+    <p>Bitte bestätige, dass du ein Mensch bist, um auf den Discord-Server zuzugreifen.</p>
+
+    <form id="verifyForm">
+      <label>
+        <input type="checkbox" id="humanCheck" required />
+        Ich bin ein echter Mensch
+      </label>
+
+      <p><strong>Rätsel:</strong> Was ist 2 + 2?</p>
+      <input type="text" id="captcha" placeholder="Antwort hier eingeben..." required />
+      
+      <button type="submit">
+        <img src="https://cdn.discordapp.com/emojis/1360767956694470786.webp" alt="check" style="height: 14px; vertical-align: middle; margin-right: 6px;">
+        Verifizieren
+      </button>
+    </form>
+
+    <div id="statusMsg"></div>
+  </div>
+
+  <script>
+    document.getElementById("verifyForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const check = document.getElementById("humanCheck").checked;
+      const captcha = document.getElementById("captcha").value.trim();
+
+      if (check && captcha === "4") {
+        document.getElementById("statusMsg").textContent = "Verifizierung erfolgreich! 🎉";
+        // HIER: Anfrage an Bot-API senden oder Webhook/Socket triggern
+      } else {
+        document.getElementById("statusMsg").textContent = "Bitte Rätsel korrekt beantworten.";
+      }
+    });
+  </script>
+</body>
+</html>
